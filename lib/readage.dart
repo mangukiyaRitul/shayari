@@ -16,13 +16,23 @@ class readpage extends StatefulWidget {
 class _readpageState extends State<readpage> {
 
   List list = [];
+  PageController? page;
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    page=PageController(
+      initialPage: widget.r,
+    );
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(appBar: AppBar(title: Text("Love Shayari"),
+    return  Scaffold(appBar: AppBar(title: Text("Love Shayari"),
         backgroundColor: Colors.green,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.share)),
@@ -32,38 +42,87 @@ class _readpageState extends State<readpage> {
         body:  Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                PageView.builder(
-                // controller: Paqe,
-                    scrollDirection: Axis.horizontal,
-                  onPageChanged: (value) {
+        Container(
+          child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.center,
 
-                    setState(() {
+                      mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                         Container(
+                            margin: EdgeInsets.all(3),
+                              height: 20,
+                              width: 20,
+                              child: Image.asset("image/iconimg1.png"),
+                          ),
+                     Container(
+                        margin: EdgeInsets.all(3),
 
-                       widget.r=value;
-                       // ShrinkWrap:true ;
-                     });
-                    // ShrinkWrap:true ;
-                  },
+                        // margin: EdgeInsets.fromLTRB(0, top, right, bottom),
+                        height: 20,
+                        width: 40,
+                        alignment: Alignment.center,
+                        child: Text("${widget.r + 1 }/${widget.shayarlist.length}"),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(3),
 
-                  itemCount:list.length,
-                  itemBuilder: (context, index) {
-                    return  Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("image/iconimg2.png"),
+                      ),
 
-                      margin: EdgeInsets.all(10),
-
-                      alignment: Alignment.center,
-                      // clipBehavior: Clip.antiAlias,
-                      width: 490,
-                      height: 300,
-                      color: Colors.red,
-                      child: SingleChildScrollView(child: Text(
-                          "${config.emoji[widget.r+10]} \n${widget.shayarlist[widget.r]}\n${config.emoji[widget.r+3]}", textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 30,))),
-                    );
-                  },
+                    ],
+                  ),
+        ),
+                // PageView.builder(
+                // // controller: Paqe,
+                //     scrollDirection: Axis.horizontal,
+                //
+                //   onPageChanged: (value) {
+                //     setState(() {
+                //        widget.r=value;
+                //        // ShrinkWrap:true ;
+                //      });
+                //     // ShrinkWrap:true ;
+                //   },
+                //   itemCount:list.length,
+                //   itemBuilder: (context, index) {
+                //
+                //     return
+                Expanded(
+                    child: PageView.builder(
+                      controller: page,
+                      onPageChanged: (value) {
+                        setState(() {
+                          widget.r=value;
+                        });
+                      },
+                      itemCount:widget.shayarlist.length,
+                      itemBuilder: (context, index) {
+                        return  ListView(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(8),
+                              color: Colors.pink[300],
+                              child: Text(
+                                "${config.emoji[widget.r]} \n ${widget.shayarlist[widget.r]}\n ${config.emoji[widget.r+1]}",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },)
                 ),
+                //   },
+                // ),
 
-                Spacer(),
+
                 Container(
                   margin: EdgeInsets.all(10),
                   color: Colors.green,
@@ -82,8 +141,8 @@ class _readpageState extends State<readpage> {
                         child: IconButton(onPressed: () {
                           setState(() {
                             if (widget.r > 0) {
-
                                   widget.r--;
+
                             }
                           });
                         }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
@@ -92,7 +151,8 @@ class _readpageState extends State<readpage> {
                         child: IconButton(onPressed: () {
                           setState(() {
                             Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return editipage("${widget.shayarlist}");
+
+                              return editipage("${widget.shayarlist[widget.r]}",widget.r);
                             },));
 
                           });
@@ -119,9 +179,9 @@ class _readpageState extends State<readpage> {
                 ),
               ],
     ),
-  ),
-    );
+  );
   }
 }
+
 
 

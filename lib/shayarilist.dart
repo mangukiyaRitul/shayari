@@ -59,10 +59,7 @@ class _shayarilistState extends State<shayarilist> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-
-      home: Scaffold( appBar: AppBar(title: Text("Love Shayari"), backgroundColor: Colors.green, actions: [  IconButton(onPressed: (){},  icon: Icon(Icons.share)),IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))],),
+    return  Scaffold( appBar: AppBar(title: Text("Love Shayari"), backgroundColor: Colors.green, actions: [  IconButton(onPressed: (){},  icon: Icon(Icons.share)),IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))],),
 
         body: ListView.builder(itemCount: list.length,itemBuilder: (context, index) {
             return Container(
@@ -82,7 +79,6 @@ class _shayarilistState extends State<shayarilist> {
 
           ),
 
-      ),
-    );
+      );
   }
 }

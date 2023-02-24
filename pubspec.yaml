@@ -63,6 +63,26 @@ flutter:
   uses-material-design: true
   assets:
     - image/
+  fonts:
+    - family: f1
+      fonts:
+        - asset: fonts/ALGER.TTF
+    - family: f2
+      fonts:
+        - asset: fonts/BRADHITC.TTF
+    - family: f3
+      fonts:
+        - asset: fonts/BRUSHSCI.TTF
+    - family: f4
+      fonts:
+        - asset: fonts/FREESCPT.TTF
+    - family: f5
+      fonts:
+        - asset: fonts/HARNGTON.TTF
+    - family: f6
+      fonts:
+        - asset: fonts/ITCEDSCR.TTF
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

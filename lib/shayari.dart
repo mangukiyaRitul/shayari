@@ -17,9 +17,7 @@ class _shayariState extends State<shayari> {
   @override
   Widget build(BuildContext context) {
     return
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+     Scaffold(
           backgroundColor: Colors.grey.shade200,
           appBar: AppBar(title: Text("Love Shayari"), backgroundColor: Colors.green, actions: [ IconButton(onPressed: (){}, icon: Icon(Icons.share)),IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))],),
           body: Container(
@@ -64,7 +62,6 @@ class _shayariState extends State<shayari> {
               return Divider(thickness: 5,height: 10,color: Colors.grey.shade200,);
             }, itemCount:config.img.length ),
           ),
-        ),
-      );
+        );
   }
 }
