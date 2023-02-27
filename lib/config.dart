@@ -4,6 +4,36 @@
     static List img = ["l1.png","l2.png","l3.png","l4.png","l5.png","l6.png","l7.png","l8.png","l9.png","l10.png","l11.png","l12.png","l13.png","l14.png","l15.png","l16.jpg",];
     static List cat = ["bestwishesh","husband","child","god","motivational","kanjoos","married","officework","santabanta","politics","love","sad","bearbar","bewfa","birthday","holiimg",];
     static List font = ["f1","f2","f3","f4","f5","f6",];
+    static List<List<Color>> gradient =[
+      [Color(0xff4E31AA),Color(0xff2F58CD),Color(0xff3795BD)],
+      [Color(0xff93BFCF),Color(0xffBDCDD6),Color(0xffEEE9DA)],
+      [Color(0xffF2921D),Color(0xffA61F69),Color(0xff400E32)],
+      [Color(0xffA084DC),Color(0xffBFACE2),Color(0xffEBC7E6)],
+      [Color(0xff301E67),Color(0xff5B8FB9),Color(0xffB6EADA)],
+      [Color(0xffD3756B),Color(0xffF0997D),Color(0xffFFC3A1)],
+      [Color(0xff9D3C72),Color(0xffC85C8E),Color(0xffFFBABA)],
+      [Color(0xff91D8E4),Color(0xffBFEAF5),Color(0xffEAFDFC)],
+      [Color(0xffF8EDE3),Color(0xffDFD3C3),Color(0xffD0B8A8)],
+      [Color(0xff227C70),Color(0xff88A47C),Color(0xffE6E2C3)],
+      [Color(0xff4B56D2),Color(0xff82C3EC),Color(0xffF1F6F5)],
+      [Color(0xffF56EB3),Color(0xffCB1C8D),Color(0xff7F167F)],
+      [Color(0xffE0144C),Color(0xffFF5858),Color(0xffFF97C1)],
+      [Color(0xff4649FF),Color(0xff7978FF),Color(0xffC47AFF)],
+      [Color(0xff749F82),Color(0xffA8E890),Color(0xffCFFF8D)],
+      [Color(0xff628E90),Color(0xffB4CDE6),Color(0xffF5EFE6)],
+      [Color(0xffFF4949),Color(0xffFF8D29),Color(0xffFFCD38)],
+      [Color(0xff480032),Color(0xffDF0054),Color(0xffFF8B6A)],
+      [Color(0xffBF9FEE),Color(0xffAA7070),Color(0xff866EC7)],
+      [Color(0xff6D3580),Color(0xffCC4165),Color(0xffE4734F)],
+      [Color(0xff3A0088),Color(0xff930077),Color(0xffE61C5D)],
+      [Color(0xffFE9191),Color(0xffE4406F),Color(0xffCA2374)],
+      [Color(0xffFFEDC6),Color(0xff96DAE4),Color(0xffE76838)],
+      [Color(0xffA20E0E),Color(0xffE29C68),Color(0xffC85108)],
+      [Color(0xffAB0E86),Color(0xffE01171),Color(0xff59057B)],
+      [Color(0xff35477D),Color(0xff6C5B7B),Color(0xffC06C84)],
+
+
+    ];
    static List color = [
 
      Colors.red,

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shayari/config.dart';
 import 'package:shayari/editpage.dart';
@@ -17,6 +19,9 @@ class _readpageState extends State<readpage> {
 
   List list = [];
   PageController? page;
+  Color bgcolor=Colors.pink;
+  List<Color> gradient=[Color(0xff93BFCF),Color(0xffBDCDD6),Color(0xffEEE9DA)];
+  bool Singalcolor=true;
 
 
 
@@ -28,6 +33,7 @@ class _readpageState extends State<readpage> {
       initialPage: widget.r,
     );
   }
+
 
 
   @override
@@ -48,12 +54,58 @@ class _readpageState extends State<readpage> {
 
                       mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                         Container(
-                            margin: EdgeInsets.all(3),
-                              height: 20,
-                              width: 20,
-                              child: Image.asset("image/iconimg1.png"),
-                          ),
+                              InkWell(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    context: context,
+                                    isDismissible: false,
+                                    // backgroundColor: ,
+                                    barrierColor: Colors.transparent,
+                                    builder: (context) {
+                                      return  Expanded(
+                                        child: Container(
+                                          margin: EdgeInsets.all(10),
+                                          color: Colors.white24,
+                                          height: 786,
+                                          // width: 50,
+                                          child: GridView.builder(
+                                            itemBuilder: (context, index) {
+                                              return InkWell( onTap: () {
+                                                setState(() {
+                                                  Singalcolor=false;
+                                                  gradient= config.gradient[index];
+                                                });
+                                                Navigator.pop(context);
+                                              }, child: Container(
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: config.gradient[index],
+                                                    )
+                                                ),
+                                              ), );
+                                            },
+                                            gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 2,
+                                              crossAxisSpacing: 5,
+                                              mainAxisSpacing: 5,
+                                            ),
+                                            shrinkWrap: true,
+                                            itemCount: config.gradient.length,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(5, 0, 10, 1),
+                                  alignment: Alignment.center,
+                                  height: 30,
+                                  width: 30,
+                                  child: Image.asset("image/001.png"),
+                                ),),
                      Container(
                         margin: EdgeInsets.all(3),
 
@@ -63,13 +115,22 @@ class _readpageState extends State<readpage> {
                         alignment: Alignment.center,
                         child: Text("${widget.r + 1 }/${widget.shayarlist.length}"),
                       ),
-                      Container(
-                        margin: EdgeInsets.all(3),
+                              InkWell(onTap: (){
+                                int min=0;
+                                int max=gradient.length;
+                                setState(() {
+                                  Singalcolor=false;
+                                  int random=Random().nextInt(max-min)+min;
+                                  gradient=config.gradient[random];
+                                });
 
-                        height: 20,
-                        width: 20,
-                        child: Image.asset("image/iconimg2.png"),
-                      ),
+                              },child: Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.fromLTRB(20, 0, 0, 1),
+                                height: 30,
+                                width: 30,
+                                child: Image.asset("image/002.png"),
+                              ),)
 
                     ],
                   ),
@@ -102,9 +163,14 @@ class _readpageState extends State<readpage> {
                         return  ListView(
                           children: [
                             Container(
+                              decoration: BoxDecoration(
+
+                                color:Singalcolor?bgcolor:null,
+                                gradient:Singalcolor?null:LinearGradient(colors: gradient),
+
+                              ),
                               margin: EdgeInsets.all(5),
                               padding: EdgeInsets.all(8),
-                              color: Colors.pink[300],
                               child: Text(
                                 "${config.emoji[widget.r]} \n ${widget.shayarlist[widget.r]}\n ${config.emoji[widget.r+1]}",
                                 textAlign: TextAlign.center,
